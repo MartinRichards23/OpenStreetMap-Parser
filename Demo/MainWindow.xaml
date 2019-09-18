@@ -1,0 +1,26 @@
+﻿<Window x:Class="Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Margin="6">
+            <StackPanel x:Name="panelControls" Visibility="Hidden" >
+                <Button x:Name="btnOpenFile" Content="Open File" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="BtnParse_Click" />
+            </StackPanel>
+            <StackPanel x:Name="panelProgress" Visibility="Visible" >
+                <Button x:Name="btnCancel" Content="Cancel" Width="100" HorizontalAlignment="Left" Click="BtnCancel_Click" />
+
+                <Grid Height="32" Margin="0,6,0,0">
+                    <ProgressBar x:Name="progessBar" IsIndeterminate="True" />
+                    <TextBlock x:Name="txtProgress" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+
+    </DockPanel>
+</Window>

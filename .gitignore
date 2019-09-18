@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/Demo/bin
+/Demo/obj
+/OpenStreetMapParser/bin
+/OpenStreetMapParser/obj
