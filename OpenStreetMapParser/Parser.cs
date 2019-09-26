@@ -3,13 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
 namespace OpenStreetMapParser
 {
+    /// <summary>
+    /// Parse the OSM data file
+    /// </summary>
     public abstract class Parser
     {
         #region Fields
@@ -23,6 +25,11 @@ namespace OpenStreetMapParser
             xmlReader = XmlReader.Create(stream);
         }
 
+        #region Public methods
+
+        /// <summary>
+        /// Read the stream
+        /// </summary>
         public void Read(CancellationToken token)
         {
             xmlReader.ReadToFollowing("bounds");
@@ -58,7 +65,11 @@ namespace OpenStreetMapParser
             }
         }
 
-        void ReadNode(XElement el)
+        #endregion
+
+        #region Private methods
+
+        private void ReadNode(XElement el)
         {
             long id = el.GetAttributeLong("id");
             double lat = el.GetAttributeDouble("lat");
@@ -90,7 +101,7 @@ namespace OpenStreetMapParser
             NodeRead(node);
         }
 
-        void ReadWay(XElement el)
+        private void ReadWay(XElement el)
         {
             long id = el.GetAttributeLong("id");
             double lat = el.GetAttributeDouble("lat");
@@ -128,7 +139,7 @@ namespace OpenStreetMapParser
             WayRead(way);
         }
 
-        void ReadRelation(XElement el)
+        private void ReadRelation(XElement el)
         {
             long id = el.GetAttributeLong("id");
             double lat = el.GetAttributeDouble("lat");
@@ -172,10 +183,16 @@ namespace OpenStreetMapParser
             RelationRead(relation);
         }
 
+        #endregion
+
+        #region Protected methods
+
         protected abstract void NodeRead(OsmNode node);
 
         protected abstract void WayRead(OsmWay way);
 
         protected abstract void RelationRead(OsmRelation relation);
+
+        #endregion
     }
 }

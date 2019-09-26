@@ -4,6 +4,9 @@ using System.Text;
 
 namespace OpenStreetMapParser.Models
 {
+    /// <summary>
+    /// Base class for various OSM types
+    /// </summary>
     public abstract class OsmObject
     {
         public long Id { get; set; }

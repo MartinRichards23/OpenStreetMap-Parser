@@ -1,12 +1,13 @@
 ﻿using OpenStreetMapParser;
 using OpenStreetMapParser.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Demo
 {
+    /// <summary>
+    /// Parser implementation that adds events
+    /// </summary>
     class MyParser : Parser
     {
         readonly Action<OsmNode> nodeRead;

@@ -1,35 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ICSharpCode.SharpZipLib;
-using ICSharpCode.SharpZipLib.BZip2;
+﻿using ICSharpCode.SharpZipLib.BZip2;
 using Microsoft.Win32;
 using OpenStreetMapParser;
 using OpenStreetMapParser.Models;
+using System;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace Demo
 {
     public partial class MainWindow : Window
     {
+        #region Fields
+
         DateTime startTime;
         int nodeCount = 0;
         int relationCount = 0;
         int wayCount = 0;
 
         CancellationTokenSource cancelTokenSource;
+
+        #endregion
 
         public MainWindow()
         {
